@@ -19,9 +19,10 @@ jobs:
       - name: install TypeScript & Vite
         run: npm install --save-dev typescript vite
       - run: npm run build
+
       - name: Archive Release
         uses: thedoctor0/zip-release@main
-          with: 
+        with: 
           type: 'zip'
           path: './dist'
           filename: 'chrome_extensions.zip'
@@ -29,5 +30,5 @@ jobs:
       - name: Upload Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "release.zip"
+          artifacts: "chrome_extensions.zip"
           token: ${{ secrets.GITHUB_TOKEN }}
