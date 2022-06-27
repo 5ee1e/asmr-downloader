@@ -37,5 +37,5 @@ jobs:
       - name: Upload Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "./dist/chrome_extensions.zip"
+          artifacts: "chrome_extensions.zip"
           token: ${{ secrets.GITHUB_TOKEN }}
