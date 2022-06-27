@@ -30,7 +30,10 @@ jobs:
           
       - name: move dir
         run: mv ./dist/chrome_extensions.zip ./
-           
+        
+      - name: list dir
+        run: ls
+        
       - name: Upload Release
         uses: ncipollo/release-action@v1
         with:
