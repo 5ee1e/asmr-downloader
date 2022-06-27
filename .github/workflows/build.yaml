@@ -29,8 +29,7 @@ jobs:
           filename: 'chrome_extensions.zip'
           
       - name: Upload Release
-        working-directory: ./dist
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "chrome_extensions.zip"
+          artifacts: "./dist/chrome_extensions.zip"
           token: ${{ secrets.GITHUB_TOKEN }}
