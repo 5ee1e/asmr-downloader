@@ -1,8 +1,11 @@
-name: Node.js CI
-
+name: run build
 on:
   workflow_dispatch:
-
+  create:
+    branches-ignore:
+      - '**'
+    tags:
+      - 'v*'
 jobs:
   build:
 
@@ -30,12 +33,10 @@ jobs:
           
       - name: move dir
         run: mv ./dist/chrome_extensions.zip ./
-        
-      - name: list dir
-        run: ls
-        
+
       - name: Upload Release
         uses: ncipollo/release-action@v1
         with:
+          allowUpdates: true
           artifacts: "chrome_extensions.zip"
           token: ${{ secrets.GITHUB_TOKEN }}
