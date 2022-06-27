@@ -26,11 +26,8 @@ jobs:
           directory: './dist'
           path: '.'
           filename: 'chrome_extension.zip'
-          
-      - name: move dir
-        run: mv ./dist/chrome_extensions.zip ./
 
       - uses: actions/upload-artifact@v3
         with:
           name: Chrome Extension
-          path: ./chrome_extensions.zip
+          path: ./dist/chrome_extensions.zip
