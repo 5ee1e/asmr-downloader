@@ -28,9 +28,9 @@ jobs:
           path: '.'
           filename: 'chrome_extensions.zip'
           
-      - name: change dir
-        working-directory: ./dist
-          
+      - name: move dir
+        run: mv ./dist/chrome_extensions.zip ./
+           
       - name: Upload Release
         uses: ncipollo/release-action@v1
         with:
