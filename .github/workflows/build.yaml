@@ -1,7 +1,10 @@
 name: run build
 on:
   workflow_dispatch:
-  
+  push:
+    tags:
+    - '*'
+
 jobs:
   build:
 
@@ -24,10 +27,13 @@ jobs:
         with: 
           type: 'zip'
           directory: './dist'
-          path: '.'
+          path: './'
           filename: 'chrome_extension.zip'
+          
+      - name: artifact move
+      - run: mv ./dist/chrome_extension.zip ./
 
-      - uses: actions/upload-artifact@v3
+      - uses: ncipollo/release-action@v1
         with:
-          name: Chrome Extension
-          path: ./dist/chrome_extension.zip
+          artifacts: "chrome_extension.zip"
+          token: ${{ secrets.GITHUB_TOKEN }}
