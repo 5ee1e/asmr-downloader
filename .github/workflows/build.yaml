@@ -9,6 +9,8 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - uses: actions/checkout@v3
@@ -29,7 +31,7 @@ jobs:
           directory: './dist'
           path: './'
           filename: 'chrome_extension.zip'
-          
+
       - name: artifact move
       - run: mv ./dist/chrome_extension.zip ./
 
