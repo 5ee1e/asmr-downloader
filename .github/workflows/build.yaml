@@ -21,10 +21,12 @@ jobs:
           
       - name: Install dependencies
         run: npm install
+        
       - name: install TypeScript & Vite
         run: npm install --save-dev typescript vite
+        
       - name: build
-      - run: npm run build
+        run: npm run build
 
       - name: Zipping Artifact
         uses: thedoctor0/zip-release@main
@@ -35,7 +37,7 @@ jobs:
           filename: 'chrome_extension.zip'
 
       - name: Artifact move
-        run: mv ./dist/chrome_extension.zip .
+        run: mv ./dist/chrome_extension.zip ./
         
       - name: Upload Archive
         uses: ncipollo/release-action@v1
