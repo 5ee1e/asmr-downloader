@@ -39,7 +39,8 @@ jobs:
       - name: Artifact move
         run: mv ./dist/chrome_extension.zip ./
         
-      - uses: actions/upload-artifact@v3
+      - name: Releases Artifact
+        uses: ncipollo/release-action@v1
         with:
-          name: chrome Extension
-          path: ./chrome_extension.zip
+          artifacts: "chrome_extension.zip"
+          token: ${{ secrets.GITHUB_TOKEN }}
