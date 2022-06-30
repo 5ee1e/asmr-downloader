@@ -2,7 +2,7 @@ name: run build
 on:
   workflow_dispatch:
   create:
-    tags:
+    releases:
       - v[0-9]+.[0-9]+.[0-9]
 
 jobs:
